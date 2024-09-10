@@ -1,0 +1,24 @@
+{
+"metrics": [
+    {
+      "NameSpace": "LCS-NEC-SystemStats",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "m_sensor_type"
+        }
+      ],
+      "MetricName": "Fan Speed",
+      "Value": "fan_speed"
+    }
+  ],
+  "archive": {
+    "name": "lcs_nec_stnStats",
+    "partition": "stn_loc#m_sensor_type",
+    "sortkey": "epoch"
+  }
+}

@@ -1,0 +1,62 @@
+{
+	"calibrations": [
+		{
+			"name": "lcs_nec_rt_bme280",
+			"value": {},
+			"status": "pending"
+		}
+	],
+	"metrics": [
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Raw Temperature",
+		"Value": "temp.average"
+	},
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Raw RH",
+		"Value": "rh.average"
+	},
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Raw Pressure",
+		"Value": "pres.average"
+	}
+	],
+	"archive": {
+	"name": "lcs_nec_stnArchiveMeasurements",
+	"partition": "stn_loc#s_name",
+	"sortkey": "start_epoch"
+	}
+}
+

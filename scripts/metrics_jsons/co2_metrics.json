@@ -1,0 +1,14 @@
+{
+  "archive": {
+    "name": "lcs_nec_stnCalSequences",
+    "partition": "stn_loc#cal_type",
+    "sortkey": "cal_start_epoch"
+  },
+    "calibrations": [
+    {
+      "name": "lcs_nec_tp_calcCalConcentrations",
+      "value": {},
+      "status": "pending"
+    }
+  ]
+}

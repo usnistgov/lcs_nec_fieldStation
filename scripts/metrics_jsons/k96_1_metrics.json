@@ -1,0 +1,77 @@
+{
+	"calibrations": [
+		{
+			"name": "lcs_nec_rt_k96",
+			"value": {},
+			"status": "pending"
+		}
+	],
+	"metrics": [
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "K96-1 Raw CO2",
+		"Value": "LPL_flt_ConcPC.average"
+	},
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "K96-1 Temperature",
+		"Value": "NTC1_Temp_flt.average"
+	},
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "K96-1 RH",
+		"Value": "RH_Sensor0.average"
+	},
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "K96-1 Pressure",
+		"Value": "P_Sensor0_flt.average"
+	}
+	],
+	"archive": {
+	"name": "lcs_nec_stnArchiveMeasurements",
+	"partition": "stn_loc#s_name",
+	"sortkey": "start_epoch"
+	}
+}
+

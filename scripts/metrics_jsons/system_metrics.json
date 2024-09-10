@@ -1,0 +1,84 @@
+{
+"metrics": [
+    {
+      "NameSpace": "LCS-NEC-SystemStats",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "m_sensor_type"
+        }
+      ],
+      "MetricName": "CPU Usage: User",
+      "Value": "cpu.user"
+    },
+  {
+      "NameSpace": "LCS-NEC-SystemStats",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "m_sensor_type"
+        }
+      ],
+      "MetricName": "CPU Usage: System",
+      "Value": "cpu.sys"
+    },
+    {
+      "NameSpace": "LCS-NEC-SystemStats",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "m_sensor_type"
+        }
+      ],
+      "MetricName": "CPU Usage: Idle",
+      "Value": "cpu.idle"
+    },
+    {
+      "NameSpace": "LCS-NEC-SystemStats",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "m_sensor_type"
+        }
+      ],
+      "MetricName": "Free Memory",
+      "Value": "memory.free"
+    },
+    {
+       "NameSpace": "LCS-NEC-SystemStats",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "m_sensor_type"
+        }
+      ],
+      "MetricName": "CPU Temperature",
+      "Value": "cputemp"
+    }
+  ],
+  "archive": {
+    "name": "lcs_nec_stnStats",
+    "partition": "stn_loc#m_sensor_type",
+    "sortkey": "epoch"
+  }
+}

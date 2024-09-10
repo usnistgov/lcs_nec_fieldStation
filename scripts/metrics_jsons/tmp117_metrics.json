@@ -1,0 +1,32 @@
+{
+	"calibrations": [
+		{
+			"name": "lcs_nec_rt_tmp117",
+			"value": {},
+			"status": "pending"
+		}
+	],
+	"metrics": [
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Raw Temperature",
+		"Value": "temp.average"
+	}
+	],
+	"archive": {
+	"name": "lcs_nec_stnArchiveMeasurements",
+	"partition": "stn_loc#s_name",
+	"sortkey": "start_epoch"
+	}
+}
+
