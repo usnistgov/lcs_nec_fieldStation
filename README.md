@@ -1,0 +1,1 @@
+This repository serves are the current code-bank for field-deployed Northeact Corridor (NEC) moderate-accuracy sensor stations. For more information on this project, either visit our [website](https://www.nist.gov/programs-projects/low-cost-sensor-platform) or contact tyler.boyle@nist.gov.
