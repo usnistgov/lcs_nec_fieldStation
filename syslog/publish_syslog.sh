@@ -3,6 +3,7 @@
 # Script used to tail jornalctl, convert entries to mqtt json packets 
 #
 #	Original: T.P. Boyle 08/2024
+#	Modified: T.P. Boyle 09/2024 - added pkt_type parameter for AWS validation
 
 source /etc/environment
 topic="st/raw/$STN_OWNER/$STN_LOC/$STN_NAME/syslog"
@@ -24,7 +25,8 @@ journalctl -f | while read line; do
         \"timestamp\": $epoch_timestamp,
         \"stn_id\": \"$STN_NAME\",
         \"stn_loc\": \"$STN_LOC\",
-        \"topic\": \"$topic\",
+        \"pkt_type\":\"syslog\",
+	\"topic\": \"$topic\",
 	\"message\": {
 		\"hostname\": \"$HOSTNAME\",
 		\"device_type\": \"$device_type\",

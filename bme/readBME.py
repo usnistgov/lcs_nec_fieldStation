@@ -6,7 +6,8 @@
 # 	Modified T.P. Boyle 02/2022: Adafruit updated library, updated code
 #	Modified T.P. Boyle 07/2023: Added Meter ID and sensor location parameters
 #	Modified T.P. Boyle 02/2024: Added support for i2c address input
-#	Modified T.P. Boyle 07/2024: Shortened parameter names to reduce packet size, added m_sensor_type, m_cal
+#	Modified T.P. Boyle 07/2024: Shortened parameter names to reduce packet size, added m_sensor_type
+#	Modified T.P. Boyle 09/2024: Added pkt_type parameter to output for validation
 
 # Read temperature, pressure, and humidity from BME280
 #	and print rounded observations to stdout
@@ -32,4 +33,4 @@ else:                   # modifiable for addr 0x76
 i2c = board.I2C()
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c,address=a)
 
-print(sensorName, "temp", round(bme280.temperature,2), "pres", round(bme280.pressure, 2), "rh", round(bme280.humidity,0), "m_meter_id", meterID, "m_sensor_location", sensorLoc, "m_sensor_type", "bme280", "m_cal",1)
+print(sensorName, "temp", round(bme280.temperature,2), "pres", round(bme280.pressure, 2), "rh", round(bme280.humidity,0), "m_meter_id", meterID, "m_sensor_location", sensorLoc, "m_sensor_type", "bme280", "pck_type", "bme280")
