@@ -33,4 +33,4 @@ else:                   # modifiable for addr 0x76
 i2c = board.I2C()
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c,address=a)
 
-print(sensorName, "temp", round(bme280.temperature,2), "pres", round(bme280.pressure, 2), "rh", round(bme280.humidity,0), "m_meter_id", meterID, "m_sensor_location", sensorLoc, "m_sensor_type", "bme280", "pck_type", "bme280")
+print(sensorName, "temp", round(bme280.temperature,2), "pres", round(bme280.pressure, 2), "rh", round(bme280.humidity,0), "m_meter_id", meterID, "m_sensor_location", sensorLoc, "m_sensor_type", "bme280", "pkt_type", "bme280")
