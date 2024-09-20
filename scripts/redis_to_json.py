@@ -1,15 +1,17 @@
-# Script used to query reds, calculate average, and output results to a JSON
+!/usr/bin/env python3
 
 # redis_to_json.py
-#	Original: T.P. Boyle 06/2021
-#	Modified: T.P. Boyle 06/2024 - Added support for "m_" parameters
-#	Modified: T.P. Boyle 07/2024 - supports use of strings for "m_" parameters, pulling of stn_id from environment variables
+#       Original: T.P. Boyle 06/2021
+#       Modified: T.P. Boyle 06/2024 - Added support for "m_" parameters
+#       Modified: T.P. Boyle 07/2024 - supports use of strings for "m_" parameters, pulling of stn_id from environment variables
+#       Modified: T.P. Boyle 09/2024 - Instead of using m_parameters, script detects if variables are not float and doesn't average them
 #
 # Script designed to be run as a cronjob on the station, used to grab specific data from Redis,
-# 	calculate statistics, and export a json to be grabbed by the MQTT agent.
+#       calculate statistics, and export a json to be grabbed by the MQTT agent.
 #
 # Syntax
 # python3 redis_to_json.py [redis_stream] [#_key_value_pairs] [averaging_interval_seconds] [mqtt_topic]
+
 
 import redis
 import sys
@@ -21,10 +23,9 @@ from dotenv import load_dotenv
 
 load_dotenv("/etc/environment")
 
-
 REDIS_STREAM = str(sys.argv[1])
 NUM_KEY_VALUE_PAIRS = int(sys.argv[2])
-INTERVAL_SECONDS = int(sys.argv[3])  # If INTERVAL_SECONDS=1, then not averaging 
+INTERVAL_SECONDS = int(sys.argv[3])  # If INTERVAL_SECONDS=1, then not averaging
 MQTT_TOPIC = str(sys.argv[4])
 
 # Calculate query interval start and end time
@@ -65,7 +66,7 @@ for entry in msg:
     if not key_names:
         key_names = list(entry_data.keys())
         vals = {key: [] for key in key_names}
-    
+
     for key in key_names:
         val = entry_data[key]
         try:
@@ -75,7 +76,8 @@ for entry in msg:
         except ValueError:
             vals[key].append(val)
 
-filtered_keys = [key for key in key_names if not key.startswith("m_")]
+# Only average parameters that are not strings
+filtered_keys = [key for key in key_names if isinstance(vals[key][0], float)]
 
 if average:
     filtered_vals = {key: np.array(vals[key]) for key in filtered_keys}
@@ -109,6 +111,3 @@ else:
         data_file[key] = last_value
 
 print(json.dumps(data_file, indent=2))
-
-
-

@@ -24,7 +24,6 @@ import time			# for time.sleep
 import RPi.GPIO as GPIO
 import fn_k30
 import fn_k96_raw
-import fn_hpma
 
 #================== Define Variables =================
 
