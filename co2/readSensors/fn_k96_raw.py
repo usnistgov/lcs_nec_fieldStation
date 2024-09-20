@@ -7,6 +7,7 @@
 		Modified: T.P. Boyle 02/2022 - switched from python 2 -> python 3
 		Modified: T.P. Boyle 06/2024 - Adjusted meter id parameter to fit "m_" metadata standards
 		Modified: T.P. Boyle 07/2024 - Added m_cal parameter for AWS synchronization, added serial.close(), manually added m_sensor_location & m_sensor_type
+		Modified: T.P. Boyle 09/2024 - Added pkt_type parameter for AWS validation, revised U32 memory read (meter_id) to be an string for sensor_to_redis.py
 
 # Note, you want to return all responses in key value pairs through a LIST!
 
@@ -143,6 +144,7 @@ def readSensor(sensorName):
 			m = m+1						# Increment for next command
 			k = k+1
 
+		# NOTE: This is only reading meter_id (which needs to be a string). Revise if reading other U32 addresses
 		while n < len(command_u32):
 			K30IO.flushInput()                              # flush serial $
 			time.sleep(0.01)                                # 10 milisecond pause
@@ -150,6 +152,7 @@ def readSensor(sensorName):
 			time.sleep(0.01)                                # 10 milisecond pause for sensor
 			K30out = K30IO.read(9)                          # read 7 bytes from the sensor, store in list
 			CO2 = (K30out[3] * 16**4) + (K30out[4] * 16**3) + (K30out[5] * 16**2) + K30out[6]
+			CO2 = 'k96_' + str(CO2)			# add the k96 header, convert to a string
 			response.append(CO2)                            # Add sensor responses to list
 			n = n+1                                         # Increment for next command
 			k = k+1
