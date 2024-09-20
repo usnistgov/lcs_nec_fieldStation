@@ -166,10 +166,8 @@ def readSensor(sensorName):
 		returnVals.append(name[x])				# Add response streamname
 		returnVals.append(response[x])				# Add response value
 
-	returnVals.append('m_cal')
-	returnVals.append(2)
 	returnVals.append('m_sensor_location')
-	returnVals.append(1)
+	returnVals.append("stn_box")
 	returnVals.append('m_sensor_type')
 	returnVals.append('k96')
 	returnVals.append('pkt_type')
