@@ -7,7 +7,7 @@
 		Modified: T.P. Boyle 02/2022 - switched from python 2 -> python 3
 		Modified: T.P. Boyle 06/2024 - Adjusted meter id parameter to fit "m_" metadata standards
 		Modified: T.P. Boyle 07/2024 - Added m_cal parameter for AWS synchronization, added serial.close(), manually added m_sensor_location & m_sensor_type
-		Modified: T.P. Boyle 09/2024 - Added pkt_type parameter for AWS validation, revised U32 memory read (meter_id) to be an string for sensor_to_redis.py
+		Modified: T.P. Boyle 09/2024 - Added pkt_type parameter for AWS validation, revised U32 memory read (meter_id) to be an string for sensor_to_redis.py, added pkt_type parameter for AWS infrastructure
 
 # Note, you want to return all responses in key value pairs through a LIST!
 
@@ -171,6 +171,8 @@ def readSensor(sensorName):
 	returnVals.append('m_sensor_location')
 	returnVals.append(1)
 	returnVals.append('m_sensor_type')
+	returnVals.append('k96')
+	returnVals.append('pkt_type')
 	returnVals.append('k96')
 	
 	K30IO.close()							# Close serial port before ending progra,
