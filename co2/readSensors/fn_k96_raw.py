@@ -152,7 +152,7 @@ def readSensor(sensorName):
 			time.sleep(0.01)                                # 10 milisecond pause for sensor
 			K30out = K30IO.read(9)                          # read 7 bytes from the sensor, store in list
 			CO2 = (K30out[3] * 16**4) + (K30out[4] * 16**3) + (K30out[5] * 16**2) + K30out[6]
-			CO2 = 'k96_' + str(CO2)			# add the k96 header, convert to a string
+			CO2 = 'k96_' + str(CO2)			# add the k96 header, convert to a string and right format
 			response.append(CO2)                            # Add sensor responses to list
 			n = n+1                                         # Increment for next command
 			k = k+1
