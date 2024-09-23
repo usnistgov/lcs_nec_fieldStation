@@ -19,8 +19,8 @@
 			"Value": "s_name"
         	}
         	],
-		"MetricName": "Raw Temperature",
-		"Value": "temp.average"
+		"MetricName": "Calibrated Temperature",
+		"Value": "calibration.lcs_nec_rt_280.temp_calAvg"
 	},
 	{	
 		"NameSpace": "LCS-NEC",
@@ -34,8 +34,8 @@
 			"Value": "s_name"
         	}
         	],
-		"MetricName": "Raw RH",
-		"Value": "rh.average"
+		"MetricName": "Calibrated RH",
+		"Value": "calibration.lcs_nec_rt_280.rh_calAvg"
 	},
 	{	
 		"NameSpace": "LCS-NEC",
@@ -49,8 +49,8 @@
 			"Value": "s_name"
         	}
         	],
-		"MetricName": "Raw Pressure",
-		"Value": "pres.average"
+		"MetricName": "Calibrated Pressure",
+		"Value": "calibration.lcs_nec_rt_280.pres_calAvg"
 	}
 	],
 	"archive": {
