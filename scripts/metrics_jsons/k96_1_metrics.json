@@ -19,8 +19,8 @@
 			"Value": "s_name"
         	}
         	],
-		"MetricName": "K96-1 Raw CO2",
-		"Value": "LPL_flt_ConcPC.average"
+		"MetricName": "K96-1 P/T Calibrated CO2",
+		"Value": "calibration.lcs_nec_rt_k96.LPL_flt_ConcPC_calAvg"
 	},
 	{	
 		"NameSpace": "LCS-NEC",
