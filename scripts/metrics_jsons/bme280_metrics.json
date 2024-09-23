@@ -20,7 +20,7 @@
         	}
         	],
 		"MetricName": "Calibrated Temperature",
-		"Value": "calibration.lcs_nec_rt_280.temp_calAvg"
+		"Value": "calibration.lcs_nec_rt_bme280.temp_calAvg"
 	},
 	{	
 		"NameSpace": "LCS-NEC",
@@ -35,7 +35,7 @@
         	}
         	],
 		"MetricName": "Calibrated RH",
-		"Value": "calibration.lcs_nec_rt_280.rh_calAvg"
+		"Value": "calibration.lcs_nec_rt_bme280.rh_calAvg"
 	},
 	{	
 		"NameSpace": "LCS-NEC",
@@ -50,7 +50,7 @@
         	}
         	],
 		"MetricName": "Calibrated Pressure",
-		"Value": "calibration.lcs_nec_rt_280.pres_calAvg"
+		"Value": "calibration.lcs_nec_rt_bme280.pres_calAvg"
 	}
 	],
 	"archive": {
