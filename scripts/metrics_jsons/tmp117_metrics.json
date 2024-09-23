@@ -19,8 +19,8 @@
 			"Value": "s_name"
         	}
         	],
-		"MetricName": "Raw Temperature",
-		"Value": "temp.average"
+		"MetricName": "Calibrated Temperature",
+		"Value": "calibration.lcs_nec_rt_tmp117.temp_calAvg"
 	}
 	],
 	"archive": {
