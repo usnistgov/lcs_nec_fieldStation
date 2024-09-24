@@ -9,7 +9,7 @@
 trap "echo 'Terminating...'; exit" SIGINT SIGTERM
 
 source /etc/environment
-topic="st/raw/$STN_OWNER/$STN_LOC/$STN_NAME/syslog"
+topic="sl/raw/$STN_OWNER/$STN_LOC/$STN_NAME/syslog"
 
 while true; do
 
