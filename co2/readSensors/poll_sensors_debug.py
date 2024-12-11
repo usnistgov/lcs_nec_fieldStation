@@ -63,7 +63,7 @@ GPIO.output(s0_pin, GPIO.HIGH)
 GPIO.output(s1_pin, GPIO.LOW)
 time.sleep(0.1)
 
-k96_1_response = fn_k96.readSensor('k96_1')	# read sensor, store response in variable
+k96_1_response = fn_k96.readSensor('k96_1_debug')	# read sensor, store response in variable
 
 if(len(k96_1_response) > 1):				# If sensor reading is returned
 	print(*k96_1_response)				# print response to stdout for redis program
@@ -72,7 +72,7 @@ if(len(k96_1_response) > 1):				# If sensor reading is returned
 GPIO.output(s0_pin, GPIO.LOW)
 GPIO.output(s1_pin, GPIO.HIGH)
 time.sleep(0.1)
-k96_2_response = fn_k96.readSensor('k96_2')
+k96_2_response = fn_k96.readSensor('k96_2_debug')
 
 if(len(k96_2_response) > 1):                            # If sensor reading is returned
         print(*k96_2_response)                          # print response to stdout for redis program
@@ -81,7 +81,7 @@ if(len(k96_2_response) > 1):                            # If sensor reading is r
 GPIO.output(s0_pin, GPIO.LOW)
 GPIO.output(s1_pin, GPIO.LOW)
 time.sleep(0.1)
-k96_3_response = fn_k96.readSensor('k96_3')
+k96_3_response = fn_k96.readSensor('k96_3_debug')
 
 if(len(k96_3_response) > 1):
 	print(*k96_3_response)
