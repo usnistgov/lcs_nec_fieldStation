@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# raw_poll_sensors.py
+# multi_poll_sensors.py
 
 '''
-Developed to power multiplexer and read from 3 different sensors
+Developed to power multiplexer and read from 10 different sensors on Batch Calibration station
 
 This script must be in the same directory as fn_k30.py and fn_k96.py
 	Because each station will, for the most part, have the same sensor configurations,
@@ -11,9 +11,9 @@ This script must be in the same directory as fn_k30.py and fn_k96.py
 	History
 	Original: T.P. Boyle 07/2021
 	Modified: T.P. Boyle 02/2022 - Migrated from python 2 -> python 3
-
+	Modified: T.P. Boyle 12/2024 - Support added for bad/null sensor response, prevent software from crashing
 Usage
-	sudo python3 raw_poll_sensors.py
+	sudo python3 multi_poll_sensors.py
 '''
 
 #========== Import Necessary Python Modules ==========
@@ -83,7 +83,8 @@ time.sleep(0.05)
 
 k96_1_response = fn_k96_raw.readSensor('k96_1')
 
-print(*k96_1_response)
+if(len(k96_1_response) > 1):				# If sensor reading is returned
+	print(*k96_1_response)				# print response to stdout for redis program
 
 # Read K96_2
 GPIO.output(mx1_s0_pin, GPIO.HIGH)
@@ -91,6 +92,9 @@ GPIO.output(mx1_s1_pin, GPIO.LOW)
 time.sleep(0.05)
 
 k96_2_response = fn_k96_raw.readSensor('k96_2')
+
+if(len(k96_2_response) > 1):				# If sensor reading is returned
+	print(*k96_2_response)				# print response to stdout for redis program
 
 print(*k96_2_response)
 
@@ -101,7 +105,8 @@ time.sleep(0.05)
 
 k96_3_response = fn_k96_raw.readSensor('k96_3')
 
-print(*k96_3_response)
+if(len(k96_3_response) > 1):				# If sensor reading is returned
+	print(*k96_3_response)				# print response to stdout for redis program)
 
 # Set MX1 to CH3 to access MX2
 GPIO.output(mx1_s0_pin, GPIO.HIGH)
@@ -114,7 +119,8 @@ time.sleep(0.05)
 
 k96_4_response = fn_k96_raw.readSensor('k96_4')
 
-print(*k96_4_response)
+if(len(k96_4_response) > 1):				# If sensor reading is returned
+	print(*k96_4_response)				# print response to stdout for redis program)
 
 # Read K96_5
 GPIO.output(mx2_s0_pin, GPIO.HIGH)
@@ -123,7 +129,8 @@ time.sleep(0.05)
 
 k96_5_response = fn_k96_raw.readSensor('k96_5')
 
-print(*k96_5_response)
+if(len(k96_5_response) > 1):				# If sensor reading is returned
+	print(*k96_5_response)				# print response to stdout for redis program)
 
 # Read K96_6
 GPIO.output(mx2_s0_pin, GPIO.LOW)
@@ -132,7 +139,8 @@ time.sleep(0.05)
 
 k96_6_response = fn_k96_raw.readSensor('k96_6')
 
-print(*k96_6_response)
+if(len(k96_6_response) > 1):				# If sensor reading is returned
+	print(*k96_6_response)				# print response to stdout for redis program)
 
 # Set MX2 to CH3 to access MX3
 GPIO.output(mx2_s0_pin, GPIO.HIGH)
@@ -145,7 +153,8 @@ time.sleep(0.05)
 
 k96_7_response = fn_k96_raw.readSensor('k96_7')
 
-print(*k96_7_response)
+if(len(k96_7_response) > 1):				# If sensor reading is returned
+	print(*k96_7_response)				# print response to stdout for redis program)
 
 # Read K96_8
 GPIO.output(mx3_s0_pin, GPIO.HIGH)
@@ -154,7 +163,8 @@ time.sleep(0.05)
 
 k96_8_response = fn_k96_raw.readSensor('k96_8')
 
-print(*k96_8_response)
+if(len(k96_8_response) > 1):				# If sensor reading is returned
+	print(*k96_8_response)				# print response to stdout for redis program)
 
 # Read K96_9
 GPIO.output(mx3_s0_pin, GPIO.LOW)
@@ -163,7 +173,8 @@ time.sleep(0.05)
 
 k96_9_response = fn_k96_raw.readSensor('k96_9')
 
-print(*k96_9_response)
+if(len(k96_9_response) > 1):				# If sensor reading is returned
+	print(*k96_9_response)				# print response to stdout for redis program)
 
 # Read K96_10
 GPIO.output(mx3_s0_pin, GPIO.HIGH)
@@ -172,4 +183,5 @@ time.sleep(0.05)
 
 k96_10_response = fn_k96_raw.readSensor('k96_10')
 
-print(*k96_10_response)
+if(len(k96_10_response) > 1):				# If sensor reading is returned
+	print(*k96_10_response)				# print response to stdout for redis program)

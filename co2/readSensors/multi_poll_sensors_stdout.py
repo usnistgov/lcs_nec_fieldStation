@@ -12,9 +12,10 @@ This script must be in the same directory as fn_k30.py and fn_k96.py
 	History
 	Original: T.P. Boyle 07/2021
 	Modified: T.P. Boyle 02/2022 - Migrated from python 2 -> python 3
+	Modified: T.P. Boyle 12/2024 - Support added for bad/null sensor response, prevent software from crashing
 
 Usage
-	sudo python3 raw_poll_sensors.py
+	sudo python3 multi_poll_sensors_stdout.py
 '''
 
 #========== Import Necessary Python Modules ==========
@@ -84,7 +85,8 @@ time.sleep(0.05)
 
 k96_1_response = fn_k96_raw.readSensor('k96_1')
 
-print(*k96_1_response,"epoch",int(time.time()))
+if(len(k96_1_response) > 1):
+	print(*k96_1_response,"epoch",int(time.time()))
 
 # Read K96_2
 GPIO.output(mx1_s0_pin, GPIO.HIGH)
@@ -93,7 +95,8 @@ time.sleep(0.05)
 
 k96_2_response = fn_k96_raw.readSensor('k96_2')
 
-print(*k96_2_response,"epoch",int(time.time()))
+if(len(k96_2_response) > 1):
+	print(*k96_2_response,"epoch",int(time.time()))
 
 # Read K96_3
 GPIO.output(mx1_s0_pin, GPIO.LOW)
@@ -102,7 +105,8 @@ time.sleep(0.05)
 
 k96_3_response = fn_k96_raw.readSensor('k96_3')
 
-print(*k96_3_response,"epoch",int(time.time()))
+if(len(k96_3_response) > 1):
+	print(*k96_3_response,"epoch",int(time.time()))
 
 # Set MX1 to CH3 to access MX2
 GPIO.output(mx1_s0_pin, GPIO.HIGH)
@@ -115,7 +119,8 @@ time.sleep(0.05)
 
 k96_4_response = fn_k96_raw.readSensor('k96_4')
 
-print(*k96_4_response,"epoch",int(time.time()))
+if(len(k96_4_response) > 1):
+	print(*k96_4_response,"epoch",int(time.time()))
 
 # Read K96_5
 GPIO.output(mx2_s0_pin, GPIO.HIGH)
@@ -124,14 +129,16 @@ time.sleep(0.05)
 
 k96_5_response = fn_k96_raw.readSensor('k96_5')
 
-print(*k96_5_response,"epoch",int(time.time()))
+if(len(k96_5_response) > 1):
+	print(*k96_5_response,"epoch",int(time.time()))
 
 # Read K96_6
 GPIO.output(mx2_s0_pin, GPIO.LOW)
 GPIO.output(mx2_s1_pin, GPIO.HIGH)
 time.sleep(0.05)
 
-k96_6_response = fn_k96_raw.readSensor('k96_6')
+if(len(k96_6_response) > 1):
+	k96_6_response = fn_k96_raw.readSensor('k96_6')
 
 print(*k96_6_response,"epoch",int(time.time()))
 
@@ -146,7 +153,8 @@ time.sleep(0.05)
 
 k96_7_response = fn_k96_raw.readSensor('k96_7')
 
-print(*k96_7_response,"epoch",int(time.time()))
+if(len(k96_7_response) > 1):
+	print(*k96_7_response,"epoch",int(time.time()))
 
 # Read K96_8
 GPIO.output(mx3_s0_pin, GPIO.HIGH)
@@ -155,7 +163,8 @@ time.sleep(0.05)
 
 k96_8_response = fn_k96_raw.readSensor('k96_8')
 
-print(*k96_8_response,"epoch",int(time.time()))
+if(len(k96_8_response) > 1):
+	print(*k96_8_response,"epoch",int(time.time()))
 
 # Read K96_9
 GPIO.output(mx3_s0_pin, GPIO.LOW)
@@ -164,7 +173,8 @@ time.sleep(0.05)
 
 k96_9_response = fn_k96_raw.readSensor('k96_9')
 
-print(*k96_9_response,"epoch",int(time.time()))
+if(len(k96_9_response) > 1):
+	print(*k96_9_response,"epoch",int(time.time()))
 
 # Read K96_10
 GPIO.output(mx3_s0_pin, GPIO.HIGH)
@@ -173,4 +183,5 @@ time.sleep(0.05)
 
 k96_10_response = fn_k96_raw.readSensor('k96_10')
 
-print(*k96_10_response,"epoch",int(time.time()))
+if(len(k96_10_response) > 1):
+	print(*k96_10_response,"epoch",int(time.time()))
