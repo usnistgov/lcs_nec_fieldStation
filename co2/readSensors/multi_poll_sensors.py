@@ -96,7 +96,6 @@ k96_2_response = fn_k96_raw.readSensor('k96_2')
 if(len(k96_2_response) > 1):				# If sensor reading is returned
 	print(*k96_2_response)				# print response to stdout for redis program
 
-print(*k96_2_response)
 
 # Read K96_3
 GPIO.output(mx1_s0_pin, GPIO.LOW)
