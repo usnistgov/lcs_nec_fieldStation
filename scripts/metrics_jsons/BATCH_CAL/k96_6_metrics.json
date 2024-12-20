@@ -63,7 +63,7 @@
 	],
 	"archive": {
 	"name": "lcs_nec_labBatchProfiling",
-	"partition": "stn_loc#s_name",
+	"partition": "m_meter_id",
 	"sortkey": "start_epoch"
 	}
 }
