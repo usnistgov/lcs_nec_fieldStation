@@ -34,10 +34,10 @@ UNDEF = -9999.					# undefined value
 e_pin = 12					# multiplexer enable pin
 mx1_s0_pin = 16					# multiplexer s0 pin
 mx1_s1_pin = 18					# multiplexer s1 pin
-mx2_s0_pin = 7
-mx2_s1_pin = 36
-mx3_s0_pin = 15
-mx3_s1_pin = 35
+mx2_s0_pin = 15
+mx2_s1_pin = 35
+mx3_s0_pin = 7
+mx3_s1_pin = 36
 
 # Empty list to store K96 results
 k96_1_response = []
