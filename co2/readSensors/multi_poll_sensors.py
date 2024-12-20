@@ -29,13 +29,13 @@ import fn_k96_raw
 
 IOdevice = '/dev/ttyS0'				#define port for I/O
 UNDEF = -9999.					# undefined value
-e_pin = 12					# multiplexer enable pin
+e_pin = 12						# multiplexer enable pin
 mx1_s0_pin = 16					# multiplexer s0 pin
 mx1_s1_pin = 18					# multiplexer s1 pin
-mx2_s0_pin = 15
-mx2_s1_pin = 35
-mx3_s0_pin = 7
-mx3_s1_pin = 36
+mx2_s0_pin = 7					# NOTE THAT MX2 and MX3 CONTROLS ARE SWITCHED ON THE BOARD
+mx2_s1_pin = 36
+mx3_s0_pin = 15
+mx3_s1_pin = 35
 
 # Empty list to store K96 results
 k96_1_response = []
