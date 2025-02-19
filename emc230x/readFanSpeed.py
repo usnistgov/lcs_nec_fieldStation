@@ -77,7 +77,6 @@ if __name__ == "__main__":
             "fan_2_rpm": rpm2 if rpm2 is not None else "N/A",
             "epoch": int(time.time()),
             "topic": MQTT_TOPIC,
-            "fan_speed": speed,
             "m_sensor_type":"emc2303",
             "stn_id":os.getenv("STN_NAME"),
             "stn_loc":os.getenv("STN_LOC"),
