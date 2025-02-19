@@ -73,7 +73,7 @@ if __name__ == "__main__":
             "fan_1_duty_cycle": round(duty_cycle1, 1),
             "fan_2_duty_cycle": round(duty_cycle2, 1) if duty_cycle2 is not None else "N/A",
             "fan_1_rpm": rpm1 if rpm1 is not None else "N/A",
-            "fan_2_rpm": rpm2 if rpm2 is not None else "N/A"
+            "fan_2_rpm": rpm2 if rpm2 is not None else "N/A",
             "epoch": int(time.time()),
             "topic": MQTT_TOPIC,
             "fan_speed": speed,
