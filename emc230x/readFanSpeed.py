@@ -1,6 +1,9 @@
 import smbus2
 import sys
 import json
+import os 
+import time
+
 
 # Registers for reading PWM duty cycle
 PWM_FAN1_REG = 0x30
@@ -71,10 +74,17 @@ if __name__ == "__main__":
             "fan_2_duty_cycle": round(duty_cycle2, 1) if duty_cycle2 is not None else "N/A",
             "fan_1_rpm": rpm1 if rpm1 is not None else "N/A",
             "fan_2_rpm": rpm2 if rpm2 is not None else "N/A"
+            "epoch": int(time.time()),
+            "topic": MQTT_TOPIC,
+            "fan_speed": speed,
+            "m_sensor_type":"emc2303",
+            "stn_id":os.getenv("STN_NAME"),
+            "stn_loc":os.getenv("STN_LOC"),
+            "pkt_type":"emc2303"
         }
 
         # Print JSON output
-        print(json.dumps(fan_data, indent=4))
+        print(json.dumps(fan_data))
 
     except ValueError:
         print("Error: Invalid input. Please enter a valid I2C address (e.g., 0x2F) and number of fans (1 or 2).")

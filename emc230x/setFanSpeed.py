@@ -2,6 +2,8 @@ import smbus2
 import sys
 import time
 import json
+import os
+
 
 # Registers for Fan 1 and Fan 2
 PWM_FAN1_REG = 0x30      # PWM control register for Fan 1
@@ -79,7 +81,14 @@ if __name__ == "__main__":
             "i2c_address": hex(i2c_addr),
             "duty_cycle_percentage": percentage,
             "fan_1_rpm": rpm1 if rpm1 is not None else "N/A",
-            "fan_2_rpm": rpm2 if rpm2 is not None else "N/A"
+            "fan_2_rpm": rpm2 if rpm2 is not None else "N/A",
+            "epoch": int(time.time()),
+            "topic": MQTT_TOPIC,
+            "fan_speed": speed,
+            "m_sensor_type":"emc2303",
+            "stn_id":os.getenv("STN_NAME"),
+            "stn_loc":os.getenv("STN_LOC"),
+            "pkt_type":"emc2303"
         }
 
         # Print JSON output
