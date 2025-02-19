@@ -92,7 +92,7 @@ if __name__ == "__main__":
         }
 
         # Print JSON output
-        print(json.dumps(fan_data, indent=4))
+        print(json.dumps(fan_data))
 
     except ValueError:
         print("Error: Invalid input. Please enter a valid I2C address (e.g., 0x2F), percentage (0-100), and number of fans (1 or 2).")
