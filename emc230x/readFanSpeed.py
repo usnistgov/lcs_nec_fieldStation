@@ -46,7 +46,7 @@ def read_fan_rpm(bus, i2c_addr, num_fans):
     return rpm1, rpm2
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         print("Usage: python3 read_fan_status.py <I2C_ADDRESS> <NUM_FANS>")
         print("Example: python3 read_fan_status.py 0x2F 2")
         sys.exit(1)
@@ -54,6 +54,7 @@ if __name__ == "__main__":
     try:
         i2c_addr = int(sys.argv[1], 16)  # Convert hex string (e.g., "0x2F") to int
         num_fans = int(sys.argv[2])  # Number of fans (1 or 2)
+        MQTT_TOPIC = str(sys.argv[3])
 
         if num_fans not in [1, 2]:
             raise ValueError("Number of fans must be 1 or 2.")

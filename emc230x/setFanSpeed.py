@@ -51,7 +51,7 @@ def read_fan_rpm(bus, i2c_addr, num_fans):
     return rpm1, rpm2
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print("Usage: python3 set_fan_speed.py <I2C_ADDRESS> <PERCENTAGE> <NUM_FANS>")
         print("Example: python3 set_fan_speed.py 0x2F 75 2")
         sys.exit(1)
@@ -60,6 +60,7 @@ if __name__ == "__main__":
         i2c_addr = int(sys.argv[1], 16)  # Convert hex string (e.g., "0x2F") to int
         percentage = float(sys.argv[2])  # Allow decimal inputs (e.g., 50.5)
         num_fans = int(sys.argv[3])  # Number of fans (1 or 2)
+        MQTT_TOPIC = str(sys.argv[4])
 
         if num_fans not in [1, 2]:
             raise ValueError("Number of fans must be 1 or 2.")
@@ -84,7 +85,6 @@ if __name__ == "__main__":
             "fan_2_rpm": rpm2 if rpm2 is not None else "N/A",
             "epoch": int(time.time()),
             "topic": MQTT_TOPIC,
-            "fan_speed": speed,
             "m_sensor_type":"emc2303",
             "stn_id":os.getenv("STN_NAME"),
             "stn_loc":os.getenv("STN_LOC"),
