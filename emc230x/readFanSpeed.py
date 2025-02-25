@@ -1,7 +1,7 @@
 import smbus2
 import sys
 import json
-import os 
+import os
 import time
 
 
@@ -16,7 +16,7 @@ TACH_FAN2_MSB = 0x4E
 TACH_FAN2_LSB = 0x4F
 
 # Fan pulses per revolution (from CFM-25CF datasheet)
-PULSES_PER_REV = 2  
+PULSES_PER_REV = 2
 
 def read_fan_duty_cycle(bus, i2c_addr, num_fans):
     """Read PWM duty cycle (0-100%) for 1 or 2 fans."""
@@ -47,8 +47,8 @@ def read_fan_rpm(bus, i2c_addr, num_fans):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python3 read_fan_status.py <I2C_ADDRESS> <NUM_FANS>")
-        print("Example: python3 read_fan_status.py 0x2F 2")
+        print("Usage: python3 read_fan_status.py <I2C_ADDRESS> <NUM_FANS> <MQTT_TOPIC>")
+        print("Example: python3 read_fan_status.py 0x2F 2 st/raw/nist/... ")
         sys.exit(1)
 
     try:
@@ -66,7 +66,7 @@ if __name__ == "__main__":
         duty_cycle1, duty_cycle2 = read_fan_duty_cycle(bus, i2c_addr, num_fans)
 
         # Read fan speeds
-        rpm1, rpm2 = read_fan_rpm(bus, i2c_addr, num_fans)
+                rpm1, rpm2 = read_fan_rpm(bus, i2c_addr, num_fans)
 
         # Construct JSON output
         fan_data = {

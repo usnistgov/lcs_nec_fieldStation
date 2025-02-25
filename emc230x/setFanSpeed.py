@@ -1,3 +1,4 @@
+  GNU nano 5.4                                                  setFanSpeed.py
 import smbus2
 import sys
 import time
@@ -14,7 +15,7 @@ TACH_FAN2_MSB = 0x4E     # Fan 2 Tachometer MSB
 TACH_FAN2_LSB = 0x4F     # Fan 2 Tachometer LSB
 
 # Fan pulses per revolution (from CFM-25CF datasheet)
-PULSES_PER_REV = 2  
+PULSES_PER_REV = 2
 
 def set_fan_speed(bus, i2c_addr, percentage, num_fans):
     """Set PWM duty cycle for 1 or 2 fans using percentage (0-100%)."""
@@ -66,7 +67,7 @@ if __name__ == "__main__":
             raise ValueError("Number of fans must be 1 or 2.")
 
         # Initialize I2C bus (Raspberry Pi typically uses bus 1)
-        bus = smbus2.SMBus(1)
+                bus = smbus2.SMBus(1)
 
         # Set fan speed
         duty_cycle = set_fan_speed(bus, i2c_addr, percentage, num_fans)
@@ -80,7 +81,8 @@ if __name__ == "__main__":
         # Construct JSON output
         fan_data = {
             "i2c_address": hex(i2c_addr),
-            "duty_cycle_percentage": percentage,
+            "fan_1_duty_cycle": percentage,
+            "fan_2_duty_cycle": percentage,
             "fan_1_rpm": rpm1 if rpm1 is not None else "N/A",
             "fan_2_rpm": rpm2 if rpm2 is not None else "N/A",
             "epoch": int(time.time()),
@@ -99,3 +101,5 @@ if __name__ == "__main__":
 
     finally:
         bus.close()
+
+
