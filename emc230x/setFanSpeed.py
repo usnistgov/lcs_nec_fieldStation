@@ -1,4 +1,3 @@
-  GNU nano 5.4                                                  setFanSpeed.py
 import smbus2
 import sys
 import time
