@@ -1,4 +1,3 @@
-  GNU nano 5.4                                              combineJsons_emc2303.py
 #!/usr/bin/python3.9
 
 # Script used in conjunction with runCals.sh to grab json packets returned by each process, append them to one summary json sent to MQTT
