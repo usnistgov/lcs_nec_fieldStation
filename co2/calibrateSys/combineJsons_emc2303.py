@@ -38,13 +38,13 @@ def combine_jsons(file1, file2, file3, file4, mqtt_topic):
                 },
                 "emc2103": {
                         "fan_low_epoch": data3["epoch"],
-                        "fan1_low_dc": data3["fan_1_duty_cylcle"],
-                        "fan2_low_dc": data3["fan_2_duty_cylcle"],
+                        "fan1_low_dc": data3["fan_1_duty_cycle"],
+                        "fan2_low_dc": data3["fan_2_duty_cycle"],
                         "fan1_low_speed": data3["fan_1_rpm"],
                         "fan2_low_speed": data3["fan_2_rpm"],
                         "fan_high_epoch": data4["epoch"],
-                        "fan1_high_dc": data4["fan_1_duty_cylcle"],
-                        "fan2_low_dc": data4["fan_1_duty_cylcle"],
+                        "fan1_high_dc": data4["fan_1_duty_cycle"],
+                        "fan2_low_dc": data4["fan_1_duty_cycle"],
                         "fan1_low_speed": data4["fan_1_rpm"],
                         "fan2_low_speed": data4["fan_2_rpm"]
                 },
