@@ -22,7 +22,7 @@ sleep 5
 
 python3 /home/meso3/emc230x/setFanSpeed.py 0x2E 30 2 st/raw/$STN_OWNER/$STN_LOC/$STN_NAME/emc2303/enclosure_fans > temp_fan_increase.json
 
-output=$(python3 combineJsons.py temp_cal_400.json temp_cal_600.json temp_fan_reduce.json temp_fan_increase.json cl/raw/$STN_OWNER/$STN_LOC/$STN_NAME/co2_cal) 
+output=$(python3 combineJsons_emc2303.py temp_cal_400.json temp_cal_600.json temp_fan_reduce.json temp_fan_increase.json cl/raw/$STN_OWNER/$STN_LOC/$STN_NAME/co2_cal) 
 
 # Print the final combined JSON output
 echo $output
