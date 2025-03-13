@@ -66,7 +66,7 @@ if __name__ == "__main__":
             raise ValueError("Number of fans must be 1 or 2.")
 
         # Initialize I2C bus (Raspberry Pi typically uses bus 1)
-                bus = smbus2.SMBus(1)
+        bus = smbus2.SMBus(1)
 
         # Set fan speed
         duty_cycle = set_fan_speed(bus, i2c_addr, percentage, num_fans)
