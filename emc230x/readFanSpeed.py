@@ -66,7 +66,7 @@ if __name__ == "__main__":
         duty_cycle1, duty_cycle2 = read_fan_duty_cycle(bus, i2c_addr, num_fans)
 
         # Read fan speeds
-                rpm1, rpm2 = read_fan_rpm(bus, i2c_addr, num_fans)
+        rpm1, rpm2 = read_fan_rpm(bus, i2c_addr, num_fans)
 
         # Construct JSON output
         fan_data = {

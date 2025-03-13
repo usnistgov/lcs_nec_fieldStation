@@ -44,9 +44,9 @@ def combine_jsons(file1, file2, file3, file4, mqtt_topic):
                         "fan2_low_speed": data3["fan_2_rpm"],
                         "fan_high_epoch": data4["epoch"],
                         "fan1_high_dc": data4["fan_1_duty_cycle"],
-                        "fan2_low_dc": data4["fan_1_duty_cycle"],
-                        "fan1_low_speed": data4["fan_1_rpm"],
-                        "fan2_low_speed": data4["fan_2_rpm"]
+                        "fan2_high_dc": data4["fan_1_duty_cycle"],
+                        "fan1_high_speed": data4["fan_1_rpm"],
+                        "fan2_high_speed": data4["fan_2_rpm"]
                 },
                 "topic": mqtt_topic,
                 "cal_type": "co2",

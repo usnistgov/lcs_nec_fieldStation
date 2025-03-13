@@ -52,7 +52,7 @@ def read_fan_rpm(bus, i2c_addr, num_fans):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python3 set_fan_speed.py <I2C_ADDRESS> <PERCENTAGE> <NUM_FANS>")
+        print("Usage: python3 set_fan_speed.py <I2C_ADDRESS> <PERCENTAGE> <NUM_FANS> <MQTT_TOPIC>")
         print("Example: python3 set_fan_speed.py 0x2F 75 2")
         sys.exit(1)
 
