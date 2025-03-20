@@ -1,0 +1,7 @@
+{
+        "archive": {
+                "name": "lcs_nec_stnStats",
+                "partition": "stn_loc#m_sensor_type",
+                "sortkey": "epoch"
+        }
+}
