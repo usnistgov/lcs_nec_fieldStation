@@ -36,7 +36,7 @@ def combine_jsons(file1, file2, file3, file4, mqtt_topic):
                         "tank_conc": data2["tank_conc"],
                         "tank_num": data2["tank_num"]
                 },
-                "emc2103": {
+                "emc2303": {
                         "fan_low_epoch": data3["epoch"],
                         "fan1_low_dc": data3["fan_1_duty_cycle"],
                         "fan2_low_dc": data3["fan_2_duty_cycle"],
