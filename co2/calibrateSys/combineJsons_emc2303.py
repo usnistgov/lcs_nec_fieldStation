@@ -53,7 +53,8 @@ def combine_jsons(file1, file2, file3, file4, mqtt_topic):
                 "stn_id": os.getenv("STN_NAME"),
                 "stn_loc": os.getenv("STN_LOC"),
                 "calibrated_sensor": os.getenv("ACTIVE_SENSOR_CAL"),
-                "cal_start_epoch": data1["valve_open"]
+                "cal_start_epoch": data1["valve_open"],
+		"pkt_type":"co2_cal_emc2303"
                 #"cal_start_epoch": epoch - ( epoch % 3600)
         }
         # other parameters to add in: sensor(s) being calibrated,station_id
