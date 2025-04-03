@@ -17,7 +17,7 @@ print(
 	m_sensorName,
 	"temp",
 	temp,
-	"relative_humidity",
+	"rh",
 	rh,
 	"m_meter_id",
 	m_meterID,
