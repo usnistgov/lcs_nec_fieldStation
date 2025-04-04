@@ -1,0 +1,47 @@
+{
+	"calibrations": [
+		{
+			"name": "lcs_nec_rt_sht30",
+			"value": {},
+			"status": "pending"
+		}
+	],
+	"metrics": [
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Calibrated Temperature",
+		"Value": "calibration.lcs_nec_rt_sht30.temp_calAvg"
+	},
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Calibrated RH",
+		"Value": "calibration.lcs_nec_rt_sht30.rh_calAvg"
+	}
+	],
+	"archive": {
+	"name": "lcs_nec_labBatchProfiling",
+	"partition": "stn_loc#s_name",
+	"sortkey": "start_epoch"
+	}
+}
+

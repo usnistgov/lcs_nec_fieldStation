@@ -1,0 +1,32 @@
+{
+        "calibrations": [
+                {
+                        "name": "lcs_nec_rt_tmp117",
+                        "value": {},
+                        "status": "pending"
+                }
+        ],
+	"metrics": [
+	{	
+		"NameSpace": "LCS-NEC",
+		"Dimensions": [
+		{
+			"Name": "Station",
+			"Value": "stn_loc"
+        	},
+        	{
+			"Name": "Sensor",
+			"Value": "s_name"
+        	}
+        	],
+		"MetricName": "Calibrated Temperature",
+		"Value": "calibration.lcs_nec_rt_tmp117.temp_calAvg"
+	}
+	],
+	"archive": {
+		"name": "lcs_nec_labBatchProfiling",
+		"partition": "m_meter_id",
+		"sortkey": "start_epoch"
+	}
+}
+
