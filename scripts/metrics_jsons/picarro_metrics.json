@@ -1,0 +1,24 @@
+{
+  "metrics": [
+    {
+      "NameSpace": "LCS-NEC",
+      "Dimensions": [
+        {
+          "Name": "Station",
+          "Value": "stn_id"
+        },
+        {
+          "Name": "Sensor",
+          "Value": "s_name"
+        }
+      ],
+      "MetricName": "Picarro CO2 Dry",
+      "Value": "co2_dry.average"
+    }
+  ],
+  "archive": {
+    "name": "lcs_nec_stnArchiveMeasurements",
+    "partition": "stn_loc#s_name",
+    "sortkey": "start_epoch"
+  }
+}

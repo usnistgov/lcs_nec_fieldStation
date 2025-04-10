@@ -1,0 +1,30 @@
+{'time_rcvd': 1736020963, 'epoch': '1736021065.38', 'cavity_pres': '139.9982', 'cavity_temp': '44.9054', 'das_temp': '40.2500', 'etalon_temp': '45.0532', 'warmbox_temp': '45.0013', 'species': '3.0000', 'mpv_pos': '0.0000', 'outlet_valve': '42559.6250', 'solenoid_valves': '0.0000', 'co2': '461.6594', 'co2_dry': '463.5623', 'ch4': '2.1021', 'ch4_dry': '2.1092', 'h2o': '0.2641', 'yyyymmdd': '20250104.0000', 'time': '200425.3820', 'pkt_type': 'crds_g2301'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+  File "/usr/local/lib/python3.9/dist-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/usr/local/lib/python3.9/dist-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/usr/local/lib/python3.9/dist-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/usr/local/lib/python3.9/dist-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meso3/picarro/readPicarro_cfads2509.py", line 64, in <module>
+    r.xadd(REDIS_STREAM, returnVals_dict, maxlen=MAX_LEN)
+  File "/usr/local/lib/python3.9/dist-packages/redis/commands/core.py", line 3566, in xadd
+    return self.execute_command("XADD", name, *pieces)
+  File "/usr/local/lib/python3.9/dist-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+  File "/usr/local/lib/python3.9/dist-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.9/dist-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.9/dist-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
