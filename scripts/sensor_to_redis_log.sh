@@ -16,7 +16,8 @@ while read -ra results ; do
         # Write to output file
         DATE=$(date +"%Y%m%d")
         OUTPUT_FILE="/home/meso3/log/${DATE}_${REDIS_STREAM}.txt"
-        echo "${results[@]}" >> "$OUTPUT_FILE"
+        EPOCH_TIME=$(date +%s)
+        echo "epoch $EPOCH_TIME ${results[@]}" >> "$OUTPUT_FILE"
         echo "$REDIS_STREAM"
         echo "$REDIS_MAX_RDGS"
         echo "XADD $REDIS_STREAM MAXLEN ~ $REDIS_MAX_RDGS * ${results[@]}" | redis-cli &
