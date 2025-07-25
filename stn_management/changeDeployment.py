@@ -4,7 +4,6 @@
 #       they are in the lab or field
 #
 #       Original: T.P. Boyle 07/2025
-
 import json
 import os
 
@@ -35,11 +34,47 @@ def update_archive_field(file_path, use_lab):
     except json.JSONDecodeError as e:
         print(f"Failed to parse JSON in {file_path}: {e}")
 
+def update_stn_loc(use_lab):
+    try:
+        with open('/etc/environment', 'r') as file:
+            lines = file.readlines()
+    except PermissionError:
+        print("Permission denied. Please run with sudo.")
+        return
+
+    new_lines = []
+    stn_loc_updated = False
+    for line in lines:
+        if line.startswith('STN_LOC='):
+            if use_lab:
+                new_lines.append('STN_LOC="lab"\n')
+            else:
+                stn_loc = input("Enter the station location: ")
+                new_lines.append(f'STN_LOC="{stn_loc}"\n')
+            stn_loc_updated = True
+        else:
+            new_lines.append(line)
+
+    if not stn_loc_updated:
+        if use_lab:
+            new_lines.append('STN_LOC="lab"\n')
+        else:
+            stn_loc = input("Enter the station location: ")
+            new_lines.append(f'STN_LOC="{stn_loc}"\n')
+
+    try:
+        with open('/etc/environment', 'w') as file:
+            file.writelines(new_lines)
+        print("Updated STN_LOC in /etc/environment")
+    except PermissionError:
+        print("Permission denied. Please run with sudo.")
+
 def main(directory, use_lab):
     for filename in os.listdir(directory):
         if filename.endswith('_metrics.json'):
             file_path = os.path.join(directory, filename)
             update_archive_field(file_path, use_lab)
+    update_stn_loc(use_lab)
 
 if __name__ == "__main__":
     directory = "/home/meso3/scripts/metrics_jsons"
@@ -51,3 +86,4 @@ if __name__ == "__main__":
         else:
             print("Invalid input. Please enter 'lab' or 'field'.")
     main(directory, use_lab)
+    print("Please reboot system to apply new environment variable")
