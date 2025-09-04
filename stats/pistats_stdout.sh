@@ -30,6 +30,6 @@ cputemp="$(vcgencmd measure_temp | awk -F "[=']" '{print $2}')"
 epoch="$(date +'%s')"
 netsig="$(iwconfig wlan0 | grep Link | awk '{print $4}' | awk -F'level=' '{print $2}' | awk -F'/' '{print $1}')"
 stats="$epoch $cpu $cpuidl $totmem $usemem $freemem $netsig"
-json="{\"epoch\": $epoch, \"topic\": \"$MQTT_TOPIC\", \"cpu\": { \"user\": $cpu, \"idle\": $cpuidl, \"iowait\": $cpuio, \"sys\": $cpusys}, \"memory\": { \"total\": $totmem, \"used\": $usemem, \"free\": $freemem }, \"cputemp\": $cputemp, \"m_sensor_type\":\"system\", \"stn_id\":\"$STN_NAME\", \"stn_loc\":\"$STN_LOC\", \"pkt_type\":\"pistats\"}"
+json="{\"epoch\": $epoch, \"topic\": \"$MQTT_TOPIC\", \"cpu\": { \"idle\": $cpuidl, \"iowait\": $cpuio, \"sys\": $cpusys}, \"memory\": { \"total\": $totmem, \"used\": $usemem, \"free\": $freemem }, \"cputemp\": $cputemp, \"m_sensor_type\":\"system\", \"stn_id\":\"$STN_NAME\", \"stn_loc\":\"$STN_LOC\", \"pkt_type\":\"pistats\"}"
 
 echo $json 
